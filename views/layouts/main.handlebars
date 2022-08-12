@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techy Bloggy</title>
+    {{!-- bootstrap link --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    {{!-- personal style sheet links --}}
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body id="log">
+    <header class="display-flex justify-space-between align-center p-2">
+        <nav>
+            <a href="/"><button class="btn btn-primary" id="Home">Home</button></a>
+            <a href="/dashboard"><button class="btn btn-primary" id="dashboard">Dashboard</button></a>
+            {{#unless logged_in}}
+            <a href="/login"><button class="btn btn-primary" id="login">Login</button></a>
+            {{/unless}}
+            {{#if logged_in}}
+            <button class="btn btn-warning" id="logout">Logout</button>
+            {{/if}}
+        </nav>
+    </header>
+    <main>
+        {{{ body }}}
+    </main>
+    <footer>
+
+    </footer>
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+</body>
+</html>
